@@ -18,7 +18,7 @@ render(
   () => (
     <Router root={layout}>
       <Route path="/" component={Home} />
-      <Route path="/settings" component={Settings} />
+      <Route path="/settings/" component={Settings} />
     </Router>
   ),
   root

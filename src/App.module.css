@@ -35,3 +35,22 @@ body {
   color: var(--contrastcolor);
   font-family: helvetica, sans-serif, arial;
 }
+
+.settings {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 5vh;
+  color: var(--contrastcolor);
+}
+
+.settingsImgClickable {
+  color: var(--contrastcolor); /*do both just in case*/
+  fill: var(--contrastcolor);
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.settings_listener {
+  text-decoration: none;
+}

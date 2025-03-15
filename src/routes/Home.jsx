@@ -1,8 +1,8 @@
 import styles from '../App.module.css';
-
+import {A} from "@solidjs/router"
 function Home() {
   return (
-    <div class={styles.App}>
+    <div>
       
       <div class={styles.searchBar}>
         <img class={styles.searchBar_img}></img>
@@ -10,7 +10,9 @@ function Home() {
         <input class={styles.searchBar_input}></input>
       </div>
       <div class={styles.settings}>
-            <img class={styles.settingsImgClickable}></img>
+            <A href="/settings/" class="settings_listener">
+            <img class={styles.settingsImgClickable} src="/settingsW.svg"></img>
+            </A>
       </div>
     </div>
   );
