@@ -1,6 +1,6 @@
-import styles from './App.module.css';
+import styles from '../App.module.css';
 
-function App() {
+function Home() {
   return (
     <div class={styles.App}>
       
@@ -16,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

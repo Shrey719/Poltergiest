@@ -15,7 +15,7 @@ await build()
 
 app.use(express.static('dist'))
 
-app.get('/', (_req, res) => {
+app.get('*', (_req, res) => { // todo - route page based on the current route
   res.sendFile(path.resolve('dist', 'index.html'))
 })
 httpServer.on('request', (req, res) => {
