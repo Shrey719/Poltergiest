@@ -5,10 +5,13 @@ import { createSignal } from "solid-js";
 function URoute() {
     return (
         <>
-            <iframe src={__uv$config.prefix + __uv$config.encodeUrl(decodeURIComponent(
-                atob(window.location.search.slice(3))
-            ))} class={styles.frame} />
-            
+            <iframe class={styles.frame} id="uframe"/>
+            {
+            setTimeout(() => {
+                document.getElementById("uframe").src = __uv$config.prefix + __uv$config.encodeUrl(decodeURIComponent(
+                    atob(window.location.search.slice(3))
+                ))
+            }, 500)}
         </>
     )
 }

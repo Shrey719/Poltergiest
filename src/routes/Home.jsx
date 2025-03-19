@@ -8,7 +8,13 @@ function Home() {
 
   const handleSearch = () => {
     if (inputValue().trim() !== "") {
-      navigate(`/route?q=${btoa(encodeURIComponent(inputValue()))}`);
+      if (inputValue().includes(".") && inputValue().includes("http") && inputValue().includes("://")) {
+        navigate(`/route?q=${btoa(encodeURIComponent(inputValue()))}`);
+      } else if (inputValue().includes(".") && !inputValue().includes("http") && !inputValue().includes(" ")) {
+        navigate(`/route?q=${btoa(encodeURIComponent("https://" + inputValue()))}`);
+      } else {
+        navigate(`/route?q=${btoa(encodeURIComponent("https://www.startpage.com/sp/search?q=" + inputValue()))}`)
+      }
     }
   };
 
