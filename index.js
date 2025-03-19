@@ -3,19 +3,15 @@ import express from 'express'
 import wisp from 'wisp-server-node'
 import http from 'node:http'
 import path from 'node:path'
-import { build } from 'vite'
 // code totaly not yoinked from mochaproxy
 const httpServer = http.createServer()
 
 const app = express()
 const port = process.env.PORT || 8080
 
-consola.start('Building frontend')
-await build()
-
 app.use(express.static('dist'))
 
-app.get('*', (_req, res) => { // todo - route page based on the current route
+app.get('/', (_req, res) => { // todo - route page based on the current route
   res.sendFile(path.resolve('dist', 'index.html'))
 })
 httpServer.on('request', (req, res) => {
