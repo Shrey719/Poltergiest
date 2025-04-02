@@ -1,19 +1,21 @@
 import styles from '../Route.module.css';
-import { A, useNavigate } from "@solidjs/router";
-import { createSignal } from "solid-js";
+import { createSignal, createEffect } from "solid-js";
 
 function URoute() {
-    return (
-        <>
-            <iframe class={styles.frame} id="uframe"/>
-            {
-            setTimeout(() => {
-                document.getElementById("uframe").src = __uv$config.prefix + __uv$config.encodeUrl(decodeURIComponent(
-                    atob(window.location.search.slice(3))
-                ))
-            }, 500)}
-        </>
-    )
+  createEffect(() => {
+    const iframe = document.getElementById("uframe");
+    if (iframe) {
+      iframe.src = __uv$config.prefix + __uv$config.encodeUrl(
+        decodeURIComponent(atob(window.location.search.slice(3)))
+      );
+    }
+  });
+
+  return (
+    <div>
+      <iframe class={styles.frame} id="uframe" />
+    </div>
+  );
 }
 
 export default URoute;
