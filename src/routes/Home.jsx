@@ -13,7 +13,7 @@ function Home() {
       } else if (inputValue().includes(".") && !inputValue().includes("http") && !inputValue().includes(" ")) {
         navigate(`/route?q=${btoa(encodeURIComponent("https://" + inputValue()))}`);
       } else {
-        navigate(`/route?q=${btoa(encodeURIComponent("https://www.startpage.com/sp/search?q=" + inputValue()))}`)
+        navigate(`/route?q=${btoa(encodeURIComponent("https://duckduckgo.com/?t=h_&q=" + inputValue()))}`)
       }
     }
   };
