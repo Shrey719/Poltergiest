@@ -6,31 +6,27 @@ import { A } from "@solidjs/router";
 function Settings() {
     const [sbcon, setsbCon] = createSignal('');
 
-    // Signals to store the selected values
+    // all of the settings signals
     const [pBackend, setPBackend] = createSignal(localStorage.getItem('pBackend') || 'Uv');
     const [server, setServer] = createSignal(localStorage.getItem('server') || 'local');
     const [cookiesEnabled, setCookiesEnabled] = createSignal(localStorage.getItem('cookiesEnabled') === 'true');
     const [jsEnabled, setJsEnabled] = createSignal(localStorage.getItem('jsEnabled') === 'true');
 
-    // Save connection selection to localStorage
     const savePBackend = (e) => {
         setPBackend(e.target.value);
         localStorage.setItem('pBackend', e.target.value);
     };
 
-    // Save server selection to localStorage
     const saveServer = (e) => {
         setServer(e.target.value);
         localStorage.setItem('server', e.target.value);
     };
 
-    // Save cookies enabled state to localStorage
     const saveCookiesEnabled = (e) => {
         setCookiesEnabled(e.target.checked);
         localStorage.setItem('cookiesEnabled', e.target.checked);
     };
 
-    // Save JavaScript enabled state to localStorage
     const saveJsEnabled = (e) => {
         setJsEnabled(e.target.checked);
         localStorage.setItem('jsEnabled', e.target.checked);
