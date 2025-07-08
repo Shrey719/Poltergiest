@@ -1,0 +1,28 @@
+{
+  "name": "poltergiest",
+  "version": "1.0.0",
+  "description": "A web proxy for those trying to uncensor their internet ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/librenetwork-dev/poltergiest"
+  },
+  "keywords": [
+    "proxy",
+    "foss",
+    "uncensorship"
+  ],
+  "author": "Shrey719",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "@mercuryworkshop/bare-mux": "^2.1.7",
+    "@mercuryworkshop/epoxy-transport": "^2.1.27",
+    "@mercuryworkshop/libcurl-transport": "^1.5.0",
+    "@mercuryworkshop/wisp-js": "^0.3.3",
+    "express": "^5.1.0"
+  }
+}
