@@ -77,7 +77,7 @@ function connect() {
 	const conBtn = css`
 		color: ${$pol.text};
 		border: none;
-		width: 10vw;
+		width: 15vw;
 		height: 5vh;
 		border-radius: 0.5rem;
 		font-size: 18px;
@@ -95,14 +95,12 @@ function connect() {
 	`
 	return html`
 		<div class=${center}>
-			
 			<h1>Connect to wisp</h1>
 			<div class=${btnRow}>
 				<img src="/assets/poltergiest.svg" height="72" width="72" style="transform: scaleX(-1);"></img>
 				<button class=${conBtn} on:click=${init}>Connect</button>
 				<button class=${conBtn}>Configure connection</button>
 				<img src="/assets/poltergiest.svg" height="72" width="72"></img>
-
 			</div>
 		</div>
 	`
