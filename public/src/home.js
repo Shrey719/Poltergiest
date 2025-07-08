@@ -89,7 +89,7 @@ function connect() {
 function body() {
 
 	const mainBody = css`
-		height: 91%;
+		height: 92%;
 		width: 100%;
 		position: absolute;
 		bottom: 0;

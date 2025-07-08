@@ -1,60 +1,38 @@
-function tabs() {
-    let tabs = css`
+function popupBar() {
+    let popup = css`
         background-color: black;
-        top: 0%;
-        height: 3vh
-        width: 100vw;
-        position: absolute
     `
-
-
     return html`
-        <div class=${tabs}>
-            hi
-        </div>
-    `
-}
 
-function control() {
-        let tabs = css`
-        background-color: grey;
-        top: 3%;
-        height: 3vh
-        width: 100vw;
-        position: absolute
-    `
-
-
-    return html`
-        <div class=${tabs}>
-            hi
-        </div>
-    `
-}
-
-function bookmarks() {
-     let tabs = css`
-        background-color: red;
-        top: 6%;
-        height: 3vh
-        width: 100vw;
-        position: absolute
-    `
-
-
-    return html`
-        <div class=${tabs}>
-            hi
+        <div class=${popup}>
+            
         </div>
     `
 }
 
 function header() {
+    let header = css`
+        height: 8vh;
+        background-color: ${$pol.header};
+        display: flex;
+        justify-content: center; 
+        align-items: center;   
+
+    `
+    let popupBtn = css`
+        & button {
+            background-color: ${$pol.headerBtn};
+            border: none;
+            border-radius: 0.5rem;
+            height: 10rem;
+            width: 10rem;
+        }
+    `
     return html`
-        <div>
-        ${bookmarks()}
-        ${control()}
-        ${tabs()}
+        <div class=${header}>
+            <div class=${popupBtn}>
+                <button>+</button>
+            </div>
         </div>
     `
 }

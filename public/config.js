@@ -9,7 +9,10 @@ self.$pol = {
     hover: "#3A3A6E",
     btnBg: "#5C3AFF",      
     btnHover: "#7D5CFF",
-    focusBorder: "#30305c",    
+    focusBorder: "#30305c",   
+    header: "#292940", 
+    headerBtn: "#232342",
+    
 
 
     engine: {
