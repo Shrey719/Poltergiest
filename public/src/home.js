@@ -1,6 +1,6 @@
 
 self._connected = signal(false);
-
+const container = document.createElement("div")
 const center = css`
 	transform: translate(-50%, -50%);
 	top: 33%;
@@ -121,7 +121,6 @@ function body() {
 			
 		}
 	`
-	const container = document.createElement("div")
 	container.className = mainBody
 
 	function render(con) {

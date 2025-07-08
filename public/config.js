@@ -12,6 +12,7 @@ self.$pol = {
     focusBorder: "#30305c",   
     header: "#292940", 
     headerBtn: "#232342",
+    menu: "#2f2f4e",
     
 
 
@@ -27,5 +28,7 @@ window.addEventListener("beforeunload", () => {
 		if (reg) reg.unregister();
 	});
 });
+
+
 
 
