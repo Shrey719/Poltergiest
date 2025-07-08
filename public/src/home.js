@@ -42,7 +42,29 @@ function connected(container) {
 			(e) => {
 				if (e.key === "Enter") {
 					e.preventDefault()
-					container.innerHTML = `<iframe src="${$pol.scramPrefix}${$scramjet.codec.encode(e.target.value)}" height=100% width=100% style="border: none"></iframe>`
+					let val = e.target.value
+					let isUrlH = /^https?:\/\/[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(:\d+)?(\/.*)?$/
+					let isUrl = /^(?!https?:\/\/)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(:\d+)?(\/.*)?$/
+					let isQuery = /^(?!.*[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}).*$/;
+					if (isUrlH.test(val)) {
+						container.innerHTML = `<iframe src="${$pol.scramPrefix}${$scramjet.codec.encode(val)}" height=100% width=100% style="border: none"></iframe>`
+					}
+					if (isUrl.test(val)) {
+						container.innerHTML = `
+						<iframe 
+							src="${$pol.scramPrefix}${$scramjet.codec.encode('https://'+val)}"
+							height=100% width=100%
+							style="border: none"
+						></iframe>`
+					}
+					if (isQuery.test(val)) {
+						container.innerHTML = `
+						<iframe 
+							src="${$pol.scramPrefix}${$scramjet.codec.encode($pol.engine.url+val)}"
+							height=100% width=100%
+							style="border: none"
+						></iframe>`
+					}
 				}
 			}
 	  	}></input>
