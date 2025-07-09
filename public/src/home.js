@@ -1,12 +1,10 @@
-
-self._connected = signal(false);
 const container = document.createElement("div")
 const center = css`
 	transform: translate(-50%, -50%);
 	top: 33%;
 	left: 50%;
 	position: absolute;
-	font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family: ${$pol.fonts};
 	font-weight: 400;
 	text-align: center;
 	font-size: 22px;
@@ -26,7 +24,7 @@ function connected(container) {
 		background-color: ${$pol.btnBg}
 		border-radius: 0.5rem;
 		font-size: 18px;
-		font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		font-family: ${$pol.fonts};
 		font-weight: 400;
 		margin-left: 0.5rem;
 		text-align: center;
@@ -71,41 +69,6 @@ function connected(container) {
     </div>
   	`
 }
-
-function connect() {
-	
-	const conBtn = css`
-		color: ${$pol.text};
-		border: none;
-		width: 15vw;
-		height: 5vh;
-		border-radius: 0.5rem;
-		font-size: 18px;
-		font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-		font-weight: 400;
-		margin-left: 0.5rem;
-	`
-
-	const btnRow = css`
-		display: flex;
-		justify-content: center;
-		align-items;: center;
-		margin-top: 4vh;
-		flex-wrap: wrap;
-	`
-	return html`
-		<div class=${center}>
-			<h1>Connect to wisp</h1>
-			<div class=${btnRow}>
-				<img src="/assets/poltergiest.svg" height="72" width="72" style="transform: scaleX(-1);"></img>
-				<button class=${conBtn} on:click=${init}>Connect</button>
-				<button class=${conBtn}>Configure connection</button>
-				<img src="/assets/poltergiest.svg" height="72" width="72"></img>
-			</div>
-		</div>
-	`
-}
-
 function body() {
 
 	const mainBody = css`
@@ -142,46 +105,8 @@ function body() {
 		}
 	`
 	container.className = mainBody
-
-	function render(con) {
-		container.replaceChildren(con ? connected(container) : connect())
-	}
-
-	_connected.subscribe(render)
-	render(_connected.value)
-
+	container.replaceChildren(connected(container))
 	return container
-}
-
-function init() {
-	const scramjet = new ScramjetController({
-		prefix: $pol.scramPrefix,
-		files: {
-			wasm: "/lib/scramjet.wasm.wasm",
-			worker: "/lib/scramjet.worker.js",
-			client: "/lib/scramjet.client.js",
-			shared: "/lib/scramjet.shared.js",
-			sync: "/lib/scramjet.sync.js",
-		},
-		flags: {
-			rewriterLogs: true,
-		},
-	});
-
-	scramjet.init()
-	navigator.serviceWorker.register("/sw.js")
-
-	const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
-	connection.setTransport("/epoxy/index.mjs", [
-		{
-			wisp:
-				(location.protocol === "https:" ? "wss" : "ws") +
-				"://" +
-				location.host +
-				$pol.wispServer,
-		},
-	])
-	_connected.value = true
 }
 
 document.body.append(body())

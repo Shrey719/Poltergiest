@@ -19,10 +19,8 @@ function header() {
 
 	let popupBtn = css`
 		border: none;
-		border-radius: 0.5rem;
-		height: 3rem;
-		width: 3rem;
-		margin-left: 1vw;
+		height: 5rem;
+		width: 5rem;
 		color: ${$pol.text};
 		display: flex;
 		justify-content: center;
@@ -30,20 +28,34 @@ function header() {
 		cursor: pointer;
 
 		& svg {
-			height: 1.5rem;
-			width: 1.5rem;
+			height: 2rem;
+			width: 2rem;
 			fill: currentColor;
 		}
 	`;
 	let orgTag = css`
-		position: absolute; 
-		right: 0;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-left: 2vw;
+		user-select: none;
+		cursor: pointer;
+
 		& img {
-			width: 5rem;
-			height: 5rem;
-			margin-top: 2vh;
+			width: 2rem;
+			height: 2rem;
 		}
-	`
+		& span {
+			color: ${$pol.mutText};
+			font-size: 20px;
+			font-family: ${$pol.fonts};
+			font-weight: 600;
+		}
+		& span:hover {
+			color: ${$pol.homeHover};
+		}
+	`;
+
 // pretti er (its actually pretty nice)
 	return html`
 		<div class=${header}>
@@ -73,8 +85,10 @@ function header() {
 					<rect y="18" width="24" height="2" />
 				</svg>
 			</div>
-			<div class=${orgTag}>
+			<div class=${orgTag} on:click=${() => {location.reload()}}>
 				<img src="/assets/poltergiest.svg"></img>
+				<span>Poltergiest</span>
+				<img src="/assets/poltergiest.svg" style="transform: scaleX(-1)"></img>
 			</div>
 		</div>
 	`;
