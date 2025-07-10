@@ -14,7 +14,7 @@ const publicPath = join(__dirname, "public");
 app.use(express.static(publicPath));
 
 wisp.options.dns_method = "resolve";
-wisp.options.dns_servers = ["94.140.14.14", "94.140.15.15"];
+wisp.options.dns_servers = ["1.1.1.1"];
 wisp.options.dns_result_order = "ipv4first";
 
 const server = createServer();
