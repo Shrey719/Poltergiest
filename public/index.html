@@ -4,6 +4,8 @@
         <meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="/lib/mote.bundle.js"></script>
+        <script src="/lib/mote-router.bundle.js"> </script>
+        
         <style>
             html, body {
                 border: none;
@@ -14,12 +16,16 @@
         </style>
         <script src="/baremux/"></script>
 		<script src="/lib/scramjet.controller.js"></script>
-		<script src="config.js"></script>
-        <script src="/startup.js"></script>
+		<script src="/config.js"></script>
         </head>
     <body>
-        <script src="src/home.js"></script>
-        <script src="src/menu.js"></script>
-        <script src="src/header.js"></script>
+        <script src="/src/menu.js"></script>
+        <script src="/src/home.js"></script>
+        <script src="/src/header.js"></script>
+        <script src="/src/settings.js"></script>
+
+        <div id="root"></div>
+
+        <script src="/startup.js"></script>
     </body>
 </html>

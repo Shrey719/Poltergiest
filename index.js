@@ -43,15 +43,19 @@ app.get("/libcurl/index.js", (req, res) => {
     res.sendFile(join(libcurlPath, "index.js"), { headers: { 'Content-Type': 'application/javascript' } });
 });
 
+app.get('/settings/', (req, res) => {
+    res.sendFile(join(__dirname, "public/index.html"))
+})
+
 server.on("request", (req, res) => {
-    res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-    res.setHeader("Cross-Origin-Embedder-Policy", "anonymous");
     app(req, res);
 });
 
 server.on("upgrade", (req, socket, head) => {
     wisp.routeRequest(req, socket, head);
 });
+
+
 
 let port = parseInt(process.env.PORT || "8080");
 

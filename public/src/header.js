@@ -85,7 +85,7 @@ function header() {
 					<rect y="18" width="24" height="2" />
 				</svg>
 			</div>
-			<div class=${orgTag} on:click=${() => {location.reload()}}>
+			<div class=${orgTag} on:click=${() => {Navigate("/")}}>
 				<img src="/assets/poltergiest.svg"></img>
 				<span>Poltergiest</span>
 				<img src="/assets/poltergiest.svg" style="transform: scaleX(-1)"></img>

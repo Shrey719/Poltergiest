@@ -69,7 +69,7 @@ function connected(container) {
     </div>
   	`
 }
-function body() {
+function home() {
 
 	const mainBody = css`
 		height: 92%;
@@ -104,9 +104,9 @@ function body() {
 			
 		}
 	`
+
 	container.className = mainBody
+
 	container.replaceChildren(connected(container))
 	return container
 }
-
-document.body.append(body())
