@@ -1,7 +1,7 @@
 const container = document.createElement("div")
 const center = css`
 	transform: translate(-50%, -50%);
-	top: 33%;
+	top: 32%;
 	left: 50%;
 	position: absolute;
 	font-family: ${$pol.fonts};
@@ -11,7 +11,6 @@ const center = css`
 `
 // container is passed in from body() (its just the div that contains the body of the thing)
 function connected(container) {
-
 
 	const searchBar = css`
 		color: ${$pol.text};
@@ -105,8 +104,8 @@ function home() {
 		}
 	`
 
-	container.className = mainBody
 
+	container.className = mainBody
 	container.replaceChildren(connected(container))
 	return container
 }
