@@ -40,6 +40,6 @@ function init() {
 init()
 createRoute("/", home)
 createRoute("/settings/", settings)
-//createRoute("/about/", about())
+createRoute("/about/", about)
 renderRoutes();
 //Navigate('/about')

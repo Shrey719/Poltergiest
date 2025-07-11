@@ -1,4 +1,4 @@
-function settings() {
+function about() {
     let main = css`
         height: 92vh;
         width: 100vw;
