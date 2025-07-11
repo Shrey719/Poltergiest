@@ -39,9 +39,22 @@ function menu() {
 
     return html`
         <div class="${menuS}" id="menu" >
-            <a href="/">🏠 Home</a>
-            <a href="/settings/">⚙️ Settings</a>
-            <a href="/about/">ℹ️ About</a>
+            <a on:click=${
+                () => {
+                    Navigate("/")
+                }
+            }>🏠 Home</a>
+            <a on:click=${
+                () => {
+                    Navigate("/settings/")
+                }
+            }>⚙️ Settings</a>
+            <a on:click=${
+                () => {
+                    Navigate("/about/")
+                }
+            }>
+            ℹ️ About</a>
         </div>
     `;
 
