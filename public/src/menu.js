@@ -2,7 +2,7 @@ let menuOpen = signal(false);
 
 function menu() {
 	let menuS = css`
-		height: 92vh;
+		height: 88.5vh;
 		width: 15vw;
 		background-color: ${$pol.menu};
 		display: flex;
@@ -97,6 +97,6 @@ function menu() {
 	`;
 }
 
-addEventListener("DOMContentLoaded", (event) => {
+addEventListener("DOMContentLoaded", () => {
 	document.body.append(menu());
 });

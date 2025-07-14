@@ -27,6 +27,7 @@ if (isChrome) {
 		configurable: true,
 	});
 } else {
+	// yeah the ladybird two users will not be able to do much
 	Object.defineProperty(navigator, "plugins", {
 		get: () => [],
 		configurable: true,

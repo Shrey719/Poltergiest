@@ -4,6 +4,9 @@ window.addEventListener("beforeunload", () => {
  	});
 });
 
+// set the background color so that the darken effect with the sidebar works 
+// really hacky but eh
+document.documentElement.style.backgroundColor = "black"
 
 function init() {
 	const scramjet = new ScramjetController({
@@ -35,11 +38,12 @@ function init() {
 	])
 }
 
-
+	
 
 init()
 createRoute("/", home)
 createRoute("/settings/", settings)
 createRoute("/about/", about)
+
 renderRoutes();
 //Navigate('/about')

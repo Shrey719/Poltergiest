@@ -46,6 +46,9 @@ app.get("/libcurl/index.js", (req, res) => {
 app.get('/settings/', (req, res) => {
     res.sendFile(join(__dirname, "public/index.html"))
 })
+app.get('/about/', (req, res) => {
+    res.sendFile(join(__dirname, "public/index.html"))
+})
 
 server.on("request", (req, res) => {
     app(req, res);

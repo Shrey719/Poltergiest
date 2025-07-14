@@ -1,13 +1,6 @@
 let blur = css`
-	filter: brightness(0.5);
-	transition: filter 0.1s ease;
-	overflow: hideen;
-	border: none;
-	outline: none;
-	background-color: ${$pol.background};
-	box-shadow: none;
-	overflow: hidden;
 	pointer-events: none;
+	opacity: 0.5;
 `
 function header() {
 	let header = css`
@@ -62,11 +55,13 @@ function header() {
 			<div
 				class=${popupBtn}
 				on:click=${() => {
+					let root = document.getElementById("root")
 					requestAnimationFrame(() => {
-						if (menuOpen.value == true) {
-							container.classList.add(blur)
-						} else if (menuOpen.value == false) {
-							container.classList.remove(blur)
+						
+						if (menuOpen.value) {
+							root.classList.add(blur)
+						} else if (!menuOpen.value) {
+							root.classList.remove(blur)
 						}
 						let menu = document.getElementById("menu")
 						menu.classList.toggle("open")

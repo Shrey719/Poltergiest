@@ -105,7 +105,7 @@ function home() {
 	`
 
 
-	container.className = mainBody
+	container.classList.add(mainBody);
 	container.replaceChildren(connected(container))
 	return container
 }

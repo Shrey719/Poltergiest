@@ -19,9 +19,12 @@ self.$pol = {
     
 
 
-    engine: {
-        url: "https://duckduckgo.com?q=",
-        name: "DuckDuckGo"
-    },
+    engine: (() => {
+        const raw = localStorage.getItem("engine");
+        return raw ? JSON.parse(raw) : {
+            url: "https://duckduckgo.com?q=",
+            name: "DuckDuckGo"
+        };
+    })()
     
 }
