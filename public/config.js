@@ -1,5 +1,4 @@
 self.$pol = {
-    wispServer: "/wisp/",
     scramPrefix: "/lib/scr/",
 
     background: "#1E1E2F",   
@@ -17,7 +16,7 @@ self.$pol = {
 
     fonts: '"Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     
-
+    selectedServer: "wss://wispserver.dev/wisp/",
 
     engine: (() => {
         const raw = localStorage.getItem("engine");
@@ -25,6 +24,13 @@ self.$pol = {
             url: "https://duckduckgo.com?q=",
             name: "DuckDuckGo"
         };
-    })()
+    })(),
+
+    wisp: {
+        servers: [
+            "wss://wispserver.dev/wisp/",
+            // we need more wisp servers lmao
+        ]
+    }
     
 }

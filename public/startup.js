@@ -1,14 +1,19 @@
+import {fastestWisp} from "./getWisp.js"
+
 window.addEventListener("beforeunload", () => {
     navigator.serviceWorker.getRegistration().then((reg) => {
 	    if (reg) reg.unregister();
  	});
 });
 
+
 // set the background color so that the darken effect with the sidebar works 
 // really hacky but eh
 document.documentElement.style.backgroundColor = "black"
 
-function init() {
+async function initSj() {
+	$pol.selectedServer = await fastestWisp($pol.wisp.servers) 
+	let wServer = Object.keys($pol.selectedServer)[0]
 	const scramjet = new ScramjetController({
 		prefix: $pol.scramPrefix,
 		files: {
@@ -29,21 +34,18 @@ function init() {
 	const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
 	connection.setTransport("/epoxy/index.mjs", [
 		{
-			wisp:
-				(location.protocol === "https:" ? "wss" : "ws") +
-				"://" +
-				location.host +
-				$pol.wispServer,
+			wisp: wServer
+		
 		},
 	])
 }
 
 	
 
-init()
 createRoute("/", home)
 createRoute("/settings/", settings)
 createRoute("/about/", about)
 
 renderRoutes();
 //Navigate('/about')
+await initSj()

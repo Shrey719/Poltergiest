@@ -5,7 +5,6 @@ import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { join } from "node:path";
 import { hostname } from "node:os";
-import { server as wisp } from "@mercuryworkshop/wisp-js/server";
 
 const __dirname = process.cwd();
 const app = express();
@@ -13,9 +12,6 @@ const app = express();
 const publicPath = join(__dirname, "public");
 app.use(express.static(publicPath));
 
-wisp.options.dns_method = "resolve";
-wisp.options.dns_servers = ["1.1.1.1"];
-wisp.options.dns_result_order = "ipv4first";
 
 const server = createServer();
 
@@ -53,12 +49,6 @@ app.get('/about/', (req, res) => {
 server.on("request", (req, res) => {
     app(req, res);
 });
-
-server.on("upgrade", (req, socket, head) => {
-    wisp.routeRequest(req, socket, head);
-});
-
-
 
 let port = parseInt(process.env.PORT || "8080");
 
