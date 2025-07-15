@@ -21,7 +21,7 @@ function settings() {
     `
     let settingsItem = css`
         margin-top: 2.5vh;
-        margin-left: 10vw;
+        margin-left: 20vw;
         margin-bottom: 2.5vh;
     `
 
