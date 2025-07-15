@@ -1,3 +1,5 @@
+import {settingsBar} from "./components/settingsSidebar.js"
+
 function settings() {
     let main = css`
         height: 92vh;
@@ -25,6 +27,7 @@ function settings() {
 
     return html`
         <div class=${main}>
+            ${settingsBar()}
             <div class=${settingsItem}>
                 <h1>Default Search engine</h1>
                 <p>This is the search engine in search bar. <br> 
@@ -53,3 +56,5 @@ function settings() {
         </div>
     `;
 }
+
+export default settings

@@ -1,5 +1,9 @@
 import {fastestWisp} from "./getWisp.js"
 
+import home from "./src/home.js"
+import settings from "./src/settings.js"
+import about from "./src/about.js"
+
 window.addEventListener("beforeunload", () => {
     navigator.serviceWorker.getRegistration().then((reg) => {
 	    if (reg) reg.unregister();

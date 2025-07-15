@@ -15,7 +15,7 @@ self.$pol = {
     homeHover: "#9494f2",
 
     fonts: '"Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-    
+
     selectedServer: "wss://wispserver.dev/wisp/",
 
     engine: (() => {

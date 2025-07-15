@@ -109,3 +109,6 @@ function home() {
 	container.replaceChildren(connected(container))
 	return container
 }
+
+
+export default home;

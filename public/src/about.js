@@ -8,3 +8,6 @@ function about() {
         <div class=${main}></div>
     `;
 }
+
+
+export default about
