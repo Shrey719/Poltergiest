@@ -18,6 +18,7 @@ document.documentElement.style.backgroundColor = "black"
 async function initSj() {
 	$pol.selectedServer = await fastestWisp($pol.wisp.servers) 
 	let wServer = Object.keys($pol.selectedServer)[0]
+	console.log(`Selected ${wServer} as the wisp server`)
 	const scramjet = new ScramjetController({
 		prefix: $pol.scramPrefix,
 		files: {

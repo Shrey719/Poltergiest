@@ -29,7 +29,6 @@ self.$pol = {
     wisp: {
         servers: [
             "wss://wispserver.dev/wisp/",
-            // we need more wisp servers lmao
         ]
     }
     

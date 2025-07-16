@@ -9,6 +9,7 @@ function getWispLatency(wisp) {
 			const time = performance.now() - start;
 			worked = true;
 			ws.close();
+			console.log(`${wisp} was fetched in ${time}ms`)
 			res(time);
 		};
 
@@ -27,23 +28,14 @@ function getWispLatency(wisp) {
 }
 
 async function fastestWisp(arr) {
-	let times = [];
-
-	for (let i = 0; i < arr.length; i++) {
-		times.push({ [arr[i]]: await getWispLatency(arr[i]) });
-	}
-
-	const flat = Object.assign({}, ...times);
-
-	const entries = Object.entries(flat);
-	const [minKey, minValue] = entries.reduce((minEntry, currentEntry) => {
-		if (currentEntry[1] < minEntry[1]) {
-			return currentEntry;
-		} else {
-			return minEntry;
-		}
-	});
-
+	const results = await Promise.all(
+		arr.map(async (url) => ({ [url]: await getWispLatency(url) }))
+	);
+	const flat = Object.assign({}, ...results);
+	const oEntries = Object.entries(flat);
+	const [minKey, minValue] = oEntries.reduce((mEntry, curEntry) =>
+		curEntry[1] < mEntry[1] ? curEntry : mEntry
+	);
 	return { [minKey]: minValue };
 }
 
