@@ -16,6 +16,13 @@ window.addEventListener("beforeunload", () => {
 document.documentElement.style.backgroundColor = "black"
 
 async function initSj() {
+	let tUrl;
+	if (location.protocol == "https:") {
+		tUrl = `wss://${location.host}/wisp/`
+	} else {
+		tUrl = `ws://${location.host}/wisp/`
+	}
+	$pol.wisp.servers.push(tUrl)
 	$pol.selectedServer = await fastestWisp($pol.wisp.servers) 
 	let wServer = Object.keys($pol.selectedServer)[0]
 	console.log(`Selected ${wServer} as the wisp server`)

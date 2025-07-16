@@ -27,6 +27,7 @@ self.$pol = {
     })(),
 
     wisp: {
+        // all of these servers + the server running on the same domain 
         servers: [
             "wss://wispserver.dev/wisp/",
         ]
