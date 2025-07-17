@@ -1,3 +1,5 @@
+import {renderSettingsAreaCon, renderSettingsAreaGeneral, renderSettingsAreaPriv} from "/src/helpers/settings.js"
+
 function settingsBar() {
 	let menuS = css`
 		height: 88.5vh;
@@ -48,7 +50,7 @@ function settingsBar() {
 
 	return html`
 		<div class="${menuS}">
-			<a on:click=${() => Navigate("/")}>
+		<a id="sGen">
 				<svg
                     class="${navIcon}"
                     viewBox="0 0 32 32"
@@ -82,7 +84,7 @@ function settingsBar() {
 
 				General
 			</a>
-			<a on:click=${() => Navigate("/settings/")}>
+			<a id="sPriv">
                 <svg
                     class="${navIcon}"
                     viewBox="0 0 64 64"
@@ -95,7 +97,7 @@ function settingsBar() {
                 </svg>
 				Privacy & Security
 			</a>
-			<a on:click=${() => Navigate("/about/")}>
+			<a id="sCon">
 				<svg
                     class="${navIcon}"
                     viewBox="0 0 64 64"

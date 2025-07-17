@@ -66,8 +66,6 @@ server.on("request", (req, res) => {
 
 let port = parseInt(process.env.PORT || "8080");
 
-if (isNaN(port)) port = 3001;
-
 server.on("listening", () => {
     const address = server.address();
 

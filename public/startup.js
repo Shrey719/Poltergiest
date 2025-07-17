@@ -1,5 +1,7 @@
 import {fastestWisp} from "./getWisp.js"
 
+import attachBindings from "./src/createBindings.js"
+
 import home from "./src/home.js"
 import settings from "./src/settings.js"
 import about from "./src/about.js"
@@ -59,5 +61,6 @@ createRoute("/settings/", settings)
 createRoute("/about/", about)
 
 renderRoutes();
-//Navigate('/about')
+
 await initSj()
+attachBindings()
