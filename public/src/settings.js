@@ -26,7 +26,6 @@ function settings() {
             margin-bottom: 2.5vh;
         }
     `
-
     return html`
         <div class=${main}>
             ${settingsBar()}

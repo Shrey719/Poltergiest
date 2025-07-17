@@ -157,7 +157,7 @@
                                     <li>Verifying you entered the correct address</li>
                                     <li>Clearing the site data</li>
                                     <li>Contacting <b id="hostname"></b>'s administrator</li>
-                                    <li>Verify the server isn't censored</li>
+     ﻿                              <li>Verify the server isn't censored</li>
                                 </ul>
                                 <p>If you're the administrator of <b id="hostname"></b>, try:</p>
                                     <ul>

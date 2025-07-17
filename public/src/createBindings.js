@@ -4,18 +4,22 @@ import {
     renderSettingsAreaPriv
 } from "/src/helpers/settings.js"
 
-function attachBindings() {
-    document.getElementById("sGen").addEventListener("click", () => {
-        renderSettingsAreaGeneral()
-    })
 
-    document.getElementById("sPriv").addEventListener("click", () => {
-        renderSettingsAreaPriv()
-    })
 
-    document.getElementById("sCon").addEventListener("click", () => {
-        renderSettingsAreaCon()
+function attachBindingsRoot() {
+    let rContainer = document.getElementById("root") || document.body
+
+    rContainer.addEventListener("click", (e) => {
+        if (e.target.id == "sGen") {
+            renderSettingsAreaGeneral()
+        }
+        if (e.target.id == "sPriv") {
+            renderSettingsAreaPriv()
+        }
+        if (e.target.id == "sCon") {
+            renderSettingsAreaCon()
+        }
     })
 }
 
-export default attachBindings
+export default attachBindingsRoot
