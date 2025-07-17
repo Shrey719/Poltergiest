@@ -2,6 +2,7 @@ import {settingsBar} from "/src/components/settingsSidebar.js"
 import {
     settingsAreaGeneral
 } from "/src/helpers/settings.js"
+
 function settings() {
     let main = css`
         height: 92vh;
